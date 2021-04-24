@@ -15,6 +15,7 @@ import { AuthContext } from "../../contexts/authContext";
 const schema = yup.object().shape({
 	email: yup.string().email().required(),
 	password: yup.string().min(8).required(),
+	fullName: yup.string().min(3).required(),
 });
 
 const Login = () => {
@@ -38,8 +39,9 @@ const Login = () => {
 		const body = JSON.stringify({
 			email: data.email,
 			password: data.password,
+			fullName: data.fullName,
 		});
-		const response = await API.post("/login", body, config);
+		const response = await API.post("/register", body, config);
 
 		console.log("res-akhir", response.data?.data?.user?.token);
 
@@ -91,6 +93,27 @@ const Login = () => {
 								<form onSubmit={handleSubmit(onSubmit.mutate)}>
 									<div
 										className={
+											errors.fullName?.message
+												? "error row px-3 mt-3"
+												: "row px-3 mt-3"
+										}
+									>
+										<label className="mb-1">
+											<h6 className="mb-0 text-sm">Full Name</h6>
+										</label>
+										<input
+											className="--input error "
+											type="text"
+											placeholder="Enter Full Name"
+											required
+											{...register("fullName")}
+										/>
+										<div className="error-message">
+											{errors.fullName?.message}
+										</div>
+									</div>
+									<div
+										className={
 											errors.email?.message
 												? "error row px-3 mt-3"
 												: "row px-3 mt-3"
@@ -132,14 +155,14 @@ const Login = () => {
 									<div className="row px-3 mb-4"></div>
 									<div className="row mb-3 px-3">
 										<button type="submit" className="btn btn-blue text-center">
-											Login
+											Register
 										</button>
 									</div>
 									<div className="row mb-4 px-3">
 										<small className="font-weight-bold">
-											Don't have an account?{" "}
+											Do you have an account?{" "}
 											<Link className="text-danger" to="register">
-												Register
+												Login
 											</Link>
 										</small>
 									</div>

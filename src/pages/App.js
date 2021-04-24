@@ -1,12 +1,11 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../assets/css/style.css";
 
+import Routing from "./Router";
 import { BrowserRouter as Router } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
+import { AuthContextProvaider } from "../contexts/authContext";
 import { Provider } from "react-redux";
-import { AuthContextProvaider } from "../contexts/authContexts";
-
-import Routing from "./Router";
 import Store from "../_redux/Store";
 
 const client = new QueryClient();
@@ -14,15 +13,15 @@ const client = new QueryClient();
 function App() {
 	return (
 		<>
-			{/* <AuthContextProvaider> */}
 			<Provider store={Store}>
-				<QueryClientProvider client={client}>
-					<Router>
-						<Routing />
-					</Router>
-				</QueryClientProvider>
+				<AuthContextProvaider>
+					<QueryClientProvider client={client}>
+						<Router>
+							<Routing />
+						</Router>
+					</QueryClientProvider>
+				</AuthContextProvaider>
 			</Provider>
-			{/* </AuthContextProvaider> */}
 		</>
 	);
 }

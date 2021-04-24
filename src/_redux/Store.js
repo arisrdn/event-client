@@ -1,7 +1,7 @@
 import { combineReducers, createStore } from "redux";
 
 // Reducers.
-import EventReducer from "./reducers/EventReducer";
+import EventReducer from "./EventReducer";
 
 const RootReducer = combineReducers({
 	event: EventReducer,

@@ -23,49 +23,11 @@
 	border-right: 1px solid #eeeeee;
 }
 
-.facebook {
-	background-color: #3b5998;
-	color: #fff;
-	font-size: 18px;
-	padding-top: 5px;
-	border-radius: 50%;
-	width: 35px;
-	height: 35px;
-	cursor: pointer;
-}
-
-.twitter {
-	background-color: #1da1f2;
-	color: #fff;
-	font-size: 18px;
-	padding-top: 5px;
-	border-radius: 50%;
-	width: 35px;
-	height: 35px;
-	cursor: pointer;
-}
-
-.linkedin {
-	background-color: #2867b2;
-	color: #fff;
-	font-size: 18px;
-	padding-top: 5px;
-	border-radius: 50%;
-	width: 35px;
-	height: 35px;
-	cursor: pointer;
-}
-
 .line {
 	height: 1px;
 	width: 45%;
 	background-color: #e0e0e0;
 	margin-top: 10px;
-}
-
-.or {
-	width: 10%;
-	font-weight: bold;
 }
 
 .text-sm {
@@ -88,8 +50,7 @@
 	font-weight: 300;
 }
 
-input,
-textarea {
+.--input {
 	padding: 10px 12px 10px 12px;
 	border: 1px solid lightgrey;
 	border-radius: 2px;
@@ -102,8 +63,7 @@ textarea {
 	letter-spacing: 1px;
 }
 
-input:focus,
-textarea:focus {
+.--input:focus {
 	-moz-box-shadow: none !important;
 	-webkit-box-shadow: none !important;
 	box-shadow: none !important;
@@ -126,13 +86,10 @@ button:focus {
 }
 
 .btn-blue:hover {
-	background-color: #000;
+	background-color: rgba(145, 182, 238, 0.446);
+	color: #1a237e;
+	border: #1a237e 1px solid;
 	cursor: pointer;
-}
-
-.bg-blue {
-	color: #fff;
-	background-color: #1a237e;
 }
 
 @media screen and (max-width: 991px) {
@@ -153,4 +110,28 @@ button:focus {
 		border-top: 1px solid #eeeeee !important;
 		margin: 0px 15px;
 	}
+}
+
+.error-message {
+	color: #cc0033;
+	display: inline-block;
+	font-size: 12px;
+	line-height: 15px;
+	margin: 5px 0 0;
+}
+
+/* Error Styling */
+
+.error label {
+	color: #cc0033;
+}
+
+.error input {
+	background-color: #fce4e4;
+	border: 1px solid #cc0033;
+	outline: none;
+}
+
+.error .error-message {
+	display: inline-block;
 }
